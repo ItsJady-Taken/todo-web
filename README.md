@@ -1,3 +1,4 @@
-# webpack-template
+# Todo web
 
-- Webpack template, alow you to dive into your project without wasting time on setting up installment
+- User create todo list
+
