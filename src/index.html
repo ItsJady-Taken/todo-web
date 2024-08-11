@@ -6,20 +6,23 @@
         <title>Todo App</title>
     </head>
     <body>
-        <div class="container">
+        <div class="content-container">
 
             <div class="sidebar">
                 <div class="app-title">
-                    <p>My Todo.Task</p> 
+                    <p>Todo.Task</p> <button>X</button>
                 </div>
                 <ul>
                     <p style="font-size: 15px; font-weight: bold;">Todo List:</p>
-                    <li><button>Add Task</button></li>
+                    <li><button class="add-task-btn hover-border" id="add-task-btn"><i class="fa-regular fa-square-plus"></i>Add Task</button></li>
+                </ul>
+                <ul>
+                    <p style="font-size: 18px; font-weight: bolder;">My Projects:</p>
                 </ul>
             </div>
 
             <div class="main-content">
-                <button><i class="fa-solid fa-bars"></i></button>
+                <button class="sidebar-toggle-btn"><i class="fa-solid fa-bars"></i></button>
                 <h1>Hello</h1>
             </div>
         </div>

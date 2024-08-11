@@ -1,15 +1,57 @@
 .sidebar {
-    border-right: 1px solid black;
-    background-color: rgb(240, 233, 224);
-    height: 100%;
+    border-top-right-radius: 9px;
+    background-color: #001230;
+    color: whitesmoke;
+    height: 100vh;
 }
 
 .app-title {
+    display: flex;
+    justify-content: space-around;   
+    align-items: center;
+}
+
+.app-title > p {
     font-size: 25px;
     font-weight: bolder;
-    padding: 0 10px;
+}
+
+.app-title > button {
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 3px;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+    color: whitesmoke;
+    transition: background-color 0.25s ease-out 0.01s;
+}
+
+.app-title > button:hover {
+    background-color: rgb(60, 52, 129);
 }
 
 .sidebar ul {
     list-style: none;
+}
+
+.add-task-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    gap: 8px;
+    font-size: 13px;
+    color: whitesmoke;
+}
+
+
+.add-task-btn:hover {
+    color: rgb(243, 56, 56);
+    width: 90px;
+  
 }

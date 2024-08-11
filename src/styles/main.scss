@@ -6,9 +6,10 @@ html, body {
     width: 100%;
 }
 
-.container {
+.content-container {
     display: grid;
     grid-template-columns: 250px 1fr;
+    gap: 12px;
 }
 
 
@@ -20,3 +21,4 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 @import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~bootstrap/scss/bootstrap';
