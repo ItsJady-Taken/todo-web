@@ -1,8 +1,16 @@
 .sidebar {
+   height: 100vh;
     border-top-right-radius: 9px;
     background-color: #001230;
     color: whitesmoke;
-    height: 100vh;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateX(0);
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .app-title {
