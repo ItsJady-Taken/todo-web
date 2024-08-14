@@ -7,4 +7,12 @@
     display: none;
     border: none;
     cursor: pointer;
+    margin: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.main-content > button:hover {
+    opacity: 0.5;  
+    width: 40px;
+    padding: 5px 0;
 }
