@@ -1,18 +1,21 @@
 .main-content {
+    display: grid;
+    grid-template-rows: auto 1fr;
     padding: 20px;
 }
     
 
-.main-content > button {
+.sidebar-toggle-btn{
+    width: 4%;
     display: none;
     border: none;
+    background-color: transparent;
+    font-size: large;
     cursor: pointer;
-    margin: 10px;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.5s ease;
 }
 
-.main-content > button:hover {
-    opacity: 0.5;  
-    width: 40px;
-    padding: 5px 0;
+.sidebar-toggle-btn:hover {
+    opacity: 0.5; 
+    transform: translateY(10%);
 }
