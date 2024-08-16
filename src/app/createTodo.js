@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 let close;
 let modal;
 function todoModal() {
@@ -10,8 +12,22 @@ function todoModal() {
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>Create Todo</h2>
-                <p>This is a simple modal popup example.</p>
-                <button id="modalButton">Okay</button>
+                <form id="todoForm" action="" method="post">
+                    <input type="text" name="title" id="todoTitle" placeholder="Todo Title" required>
+                    <input type="text" name="description" id="todoDescription" placeholder="Todo Description" required>
+                    <input type="date" name="date" id="todoDate" placeholder="Todo Date" required>
+                    <select name="priority" id="todoPriority" placeholder="Todo Priority" required>
+                    <option value="none">Priority (none)</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    </select>
+                    <div style="display: flex; align-items: center">  
+                        <input type="checkbox" name="check" id="check" value="check">
+                        <label for="check" style="position: relative; bottom: 1px">Mark as completed</label>
+                    </div>
+                     <button id="modalButton" name="submit">Submit</button>
+                </form>     
             </div>
                 
         `;
@@ -20,7 +36,7 @@ function todoModal() {
     }
     return modal;
 }
-export default function createTodo() { 
+export default function showTodo() { 
     todoModal().style.display = "flex";
     setTimeout(() => todoModal().classList.add('show'), 10);
     close.onclick = ()=> {

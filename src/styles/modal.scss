@@ -64,3 +64,13 @@
     background-color: #218838;
 }
 
+#todoForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#todoTitle, #todoDescription, #todoDate, #todoPriority {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
