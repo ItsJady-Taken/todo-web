@@ -52,17 +52,25 @@
 
 /* Modal button */
 #modalButton {
-    padding: 10px 20px;
-    background-color: #28a745;
+    background-color: #007bff; /* Bootstrap's primary blue color */
     color: white;
-    border: none;
+    border: 3px solid #053160;
+    border-bottom: 8px solid #053160;
     border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
 #modalButton:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
+#modalButton:active {
+    background-color: #053160;
+    transform: translateY(2px);
+}
+
+/* Form styling */
 
 #todoForm {
     display: flex;

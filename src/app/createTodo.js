@@ -26,7 +26,7 @@ function todoModal() {
                         <input type="checkbox" name="check" id="check" value="check">
                         <label for="check" style="position: relative; bottom: 1px">Mark as completed</label>
                     </div>
-                     <button id="modalButton" name="submit">Submit</button>
+                     <button class="fa-button" id="modalButton" name="submit"><p>Create</p></button>
                 </form>     
             </div>
                 
