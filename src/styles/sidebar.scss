@@ -3,11 +3,11 @@
     border-top-right-radius: 8px;
     background-color: #001230;
     color: whitesmoke;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform 0.5s ease;
     transform: translateX(0);
 }
 
-.sidebar.closed {
+.sidebar.closed{
     transform: translateX(-100%);
     opacity: 0;
     visibility: hidden;
@@ -43,6 +43,7 @@
 }
 
 .sidebar ul {
+    transition-delay: 0.2s;
     list-style: none;
 }
 
@@ -66,4 +67,52 @@
 .add-task-btn:hover {
     color: rgb(243, 56, 56);
     transform: translateX(3%);
+}
+
+/* Dropdown styling */
+
+
+.project-dropdown > button {
+    font-style: italic;
+    font-weight: lighter;
+    border: none;
+    border-radius: 3px;
+    border-bottom: 1px solid whitesmoke;
+    color: whitesmoke;
+    background-color: rgb(34, 27, 96);
+    padding: 10px;
+    margin-top: 10px;
+    width: 150px;
+    cursor: pointer;
+};
+
+.project-dropdown-content > button {
+    display: block;
+    border: none;
+    background-color: rgb(34, 27, 96);
+    padding: 10px;
+    color: whitesmoke;
+    width: 100px;
+    cursor: pointer;
+}
+
+.project-dropdown-content {
+    display: none;
+    position: absolute;
+    max-width: 150px;
+    border-radius: 3px;
+    z-index: 1;
+}
+
+.project-dropdown:hover .project-dropdown-content {
+    display: block;
+}
+
+.project-dropdown-content button:hover {
+    background-color: rgb(60, 52, 129); 
+    border-bottom: 1px solid whitesmoke;
+}
+
+.project-dropdown-content > button:active {
+    transform: translateX(2px);
 }
