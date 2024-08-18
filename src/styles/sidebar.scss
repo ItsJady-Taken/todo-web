@@ -17,6 +17,7 @@
     display: flex;
     justify-content: space-around;   
     align-items: center;
+    transition-delay: 0.2s;
 }
 
 .app-title > p {
@@ -86,15 +87,21 @@
     cursor: pointer;
 };
 
+.project-dropdown > button:hover {
+    background-color: rgb(60, 52, 129);
+} 
+
 .project-dropdown-content > button {
     display: block;
     border: none;
     background-color: rgb(34, 27, 96);
     padding: 10px;
     color: whitesmoke;
-    width: 100px;
+    width: 150px;
     cursor: pointer;
 }
+
+
 
 .project-dropdown-content {
     display: none;

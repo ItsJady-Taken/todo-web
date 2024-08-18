@@ -23,12 +23,17 @@ document.getElementById('add-todo-btn').addEventListener('click', ()=> {
 
 // create project
 const addProject = document.querySelector('#createProject');
+const existProject = document.querySelector('#project-dropdown-content');
 addProject.addEventListener('keypress', (event)=> {
     if (event.key === 'Enter') {
+        if (!addProject.value) return;
         const newProject = addProject.value.trim();
-        const project = createProject(newProject);
-        showProject(project.name);
-        console.log(project);
+        const existingProjects = Array.from(existProject.children).map(option => option.textContent);
+
+        if(!existingProjects.includes(newProject)) {
+            const project = createProject(newProject);
+            showProject(project.name);
+        }
         addProject.value = '';
     }
 })

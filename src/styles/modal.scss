@@ -77,8 +77,22 @@
     flex-direction: column;
     gap: 10px;
 }
-#todoTitle, #todoDescription, #todoDate, #todoPriority {
+#todoTitle, #todoDescription, #todoDate, #todoPriority, .modal-project-dropdown  button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
+
+.three-inputs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.modal-project-dropdown  button {
+    background-color: transparent;
+    padding: 14px 10px;
+    
+    width: 150px;
+    cursor: pointer;
+};

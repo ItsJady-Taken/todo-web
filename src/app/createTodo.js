@@ -13,15 +13,27 @@ function todoModal() {
                 <span class="close">&times;</span>
                 <h2>Create Todo</h2>
                 <form id="todoForm" action="" method="post">
-                    <input type="text" name="title" id="todoTitle" placeholder="Todo Title" required>
-                    <input type="text" name="description" id="todoDescription" placeholder="Todo Description" required>
-                    <input type="date" name="date" id="todoDate" placeholder="Todo Date" required>
-                    <select name="priority" id="todoPriority" placeholder="Todo Priority" required>
-                    <option value="none">Priority (none)</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                    </select>
+                    <input type="text" name="title" id="todoTitle" placeholder="Todo Title..." maxlength="25" required>
+                    <textarea cols="30" rows="10" name="description" id="todoDescription" placeholder="Todo Description..." required></textarea>
+                    <div class="three-inputs">
+                        <input type="date" name="date" id="todoDate" placeholder="Todo Date" required>
+                        
+                        <select name="priority" id="todoPriority" required>
+                            <option value="none">Priority (none)</option>
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>  
+                        </select>
+
+                        <div class="modal-project-dropdown" id="modal-project-dropdown">
+                            <button>Choose Project <i class="fa-solid fa-arrow-down"></i></button>
+                            <div class="modal-project-dropdown-content" id="modal-project-dropdown-content">
+                        
+                            </div>
+                    </div>
+
+                    </div>
+                    
                     <div style="display: flex; align-items: center">  
                         <input type="checkbox" name="check" id="check" value="check">
                         <label for="check" style="position: relative; bottom: 1px">Mark as completed</label>
