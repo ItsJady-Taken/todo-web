@@ -92,7 +92,37 @@
 .modal-project-dropdown  button {
     background-color: transparent;
     padding: 14px 10px;
-    
     width: 150px;
     cursor: pointer;
 };
+
+.modal-project-dropdown-content {
+    display: none;
+    position: absolute;
+    max-width: 150px;
+    border-radius: 3px;
+    z-index: 1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    background-color: whitesmoke;
+}
+.modal-project-dropdown-content > button {
+    display: block;
+    border: none;
+    padding: 10px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.modal-project-dropdown:hover .modal-project-dropdown-content {
+    display: block;
+}
+
+.modal-project-dropdown-content  button:hover {
+    background-color: #ccc; 
+    border-left: 4px solid rgb(71, 52, 240);
+}
+
+.modal-project-dropdown-content > button:active {
+    transform: translateX(2px);
+
+}

@@ -12,8 +12,8 @@ function showProject(projectName) {
     projectBtn.textContent = projectName;
 
     document.getElementById('project-dropdown-content').appendChild(projectBtn);  
-    // const projectBtnClone = projectBtn.cloneNode(true);
-    // document.getElementById('todoProject').appendChild(projectBtnClone);
+    const projectBtnClone = projectBtn.cloneNode(true);
+    document.getElementById('modal-project-dropdown-content').appendChild(projectBtnClone);
 }
 
 
