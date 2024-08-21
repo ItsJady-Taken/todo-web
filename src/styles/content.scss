@@ -4,7 +4,6 @@
     padding: 20px;
 }
     
-
 .sidebar-toggle-btn{
     width: 4%;
     display: none;
@@ -18,4 +17,15 @@
 .sidebar-toggle-btn:hover {
     opacity: 0.5; 
     transform: translateY(10%);
+}
+
+// show project and the todo in it
+.project-content {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.project-content-title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }

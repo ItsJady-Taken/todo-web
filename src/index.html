@@ -9,31 +9,36 @@
         <div class="container" id="container">
 
             <div class="sidebar" id="sidebar">
+
                 <div class="app-title">
                     <p>Todo.Task</p> <button id="close-sidebar">X</button>
                 </div>
-                <ul>
+
+                <ul class="todo-list" id="todo-list">
                     <p style="font-size: 15px; font-weight: bold;">Todo List:</p>
                     <li><button class="add-task-btn" id="add-todo-btn"><i class="fa-regular fa-square-plus"></i>Add Todo</button></li>      
                 </ul>
+
                 <ul class="project-list">
                     <p style="font-size: 18px; font-weight: bolder;">My Projects:</p>
                     <input type="text" name="" id="createProject" maxlength="25" placeholder="Create Project">
+
                     <div class="project-dropdown" id="project-dropdown">
-                        <button>All Projects <i class="fa-solid fa-arrow-down-short-wide"></i></button>
+                        <button id="project-dropdown-btn">All Projects <i class="fa-solid fa-arrow-down-short-wide"></i></button>
                         <div class="project-dropdown-content" id="project-dropdown-content">
                         
                         </div>
                     </div>
                 </ul>
+
             </div>
 
             <div class="main-content" id="main-content">
+
                 <button id="sidebar-toggle-btn" class="sidebar-toggle-btn"><i class="fa-solid fa-bars fa-lg"></i></button>
-                <h1>Hello</h1>
-                <main>
-                    
-                    
+
+                <main class="content" id="content">
+                      
                 </main>
             </div>
         </div>
