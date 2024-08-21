@@ -26,9 +26,8 @@ function todoModal() {
                         </select>
 
                         <div class="modal-project-dropdown" id="modal-project-dropdown">
-                            <button>Choose Project <i class="fa-solid fa-arrow-down"></i></button>
+                            <button>Project (none) <i class="fa-solid fa-arrow-down"></i></button>
                             <div class="modal-project-dropdown-content" id="modal-project-dropdown-content">
-                                <button>All Projects</button>
                             </div>
                         </div>
 

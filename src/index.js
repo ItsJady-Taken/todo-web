@@ -28,12 +28,13 @@ addProject.addEventListener('keypress', (event)=> {
     if (event.key === 'Enter') {
         if (!addProject.value) return;
         const newProject = addProject.value.trim();
-        const existingProjects = Array.from(existProject.children).map(option => option.textContent);
+        showTodo();
 
+        const existingProjects = Array.from(existProject.children).map(option => option.textContent);
         if(!existingProjects.includes(newProject)) {
             const project = createProject(newProject);
             showProject(project.name);
-        }
+        }    
         addProject.value = '';
     }
 })
