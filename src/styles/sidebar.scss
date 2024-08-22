@@ -109,11 +109,30 @@
     max-width: 150px;
     border-radius: 3px;
     z-index: 1;
+    height: 150px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.project-dropdown:hover .project-dropdown-content {
+.project-dropdown:hover .project-dropdown-content  {
     display: block;
+   
 }
+
+.project-dropdown-content::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.project-dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 3px;
+}
+
+.project-dropdown-content::-webkit-scrollbar-track {
+    display: none;
+}
+
 
 .project-dropdown-content button:hover {
     background-color: rgb(60, 52, 129); 

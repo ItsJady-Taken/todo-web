@@ -89,7 +89,7 @@
     flex-wrap: wrap;
 }
 
-.modal-project-dropdown  button {
+.modal-project-dropdown > button {
     background-color: transparent;
     padding: 14px 10px;
     width: 150px;
@@ -104,7 +104,25 @@
     z-index: 1;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     background-color: whitesmoke;
+    max-height: 100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
+
+.modal-project-dropdown-content::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+.modal-project-dropdown-content::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 3px;
+}
+
+.modal-project-dropdown-content::-webkit-scrollbar-track {
+    display: none;
+}
+
 .modal-project-dropdown-content > button {
     display: block;
     border: none;

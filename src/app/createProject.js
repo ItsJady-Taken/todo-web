@@ -30,8 +30,11 @@ function showProject(projectName) {
 
         projectContent.innerHTML = `
             <div class="project-content-title">
-                <h2>${project.name}</h2> <button>&times;</button>
+                <h2>Project: ${project.name}</h2> <button class="remove-project-btn" id="remove-project-btn">Remove Project</button>
             </div>
+            <ul class="project-list">
+             
+            </ul>
             
         `;
 
