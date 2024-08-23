@@ -1,11 +1,16 @@
 import  showTodo  from "./createTodo";
-import projectModal from "./todoModal";
+import projectModal, { removeProjectFirstChild } from "./todoModal";
  function createProject(name) {
     return {
         name,
         projects: [],
       }; 
 }
+
+function removeProject(name) {
+    name.remove();
+}
+
 //create project button and clone btn to the modal of Todo
 const projectDropdownContent = document.getElementById('project-dropdown-content');
 const projectDropdownBtn = document.getElementById('project-dropdown-btn');
@@ -13,7 +18,7 @@ function showProject(projectName) {
     const project = createProject(projectName);
     const projectBtn = document.createElement('button');
     projectBtn.type = 'button';
-    projectBtn.id = project.name;
+    projectBtn.id = `${project.name}-btn`;
     projectBtn.textContent = project.name;
 
     projectDropdownContent.appendChild(projectBtn);  
@@ -25,12 +30,9 @@ function showProject(projectName) {
     projectBtn.addEventListener('click', () => {
         projectDropdownBtn.textContent = '';
         projectDropdownBtn.textContent = projectBtn.textContent;
+        removeProjectFirstChild()
         projectModal(project);
-
-        const content = document.getElementById('content')
-        if (content.firstChild) {
-            content.firstChild.remove();
-        }
+    
     });
 }
 

@@ -31,3 +31,22 @@
     border-bottom: 3PX solid gray;
     border-radius: 3px;
 }
+
+.remove-project-btn {
+    background-color: #d32626; /* Bootstrap's primary blue color */
+    color: white;
+    border: 3px solid #680d0d;
+    border-bottom: 8px solid #680d0d;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.remove-project-btn:hover {
+    background-color: #9c1f1f;
+}
+.remove-project-btn:active {
+    background-color: #680d0d;
+    transform: translateY(2px);
+}
