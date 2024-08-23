@@ -26,7 +26,7 @@ function todoModal() {
                         </select>
 
                         <div class="modal-project-dropdown" id="modal-project-dropdown">
-                            <button type="button">Project (none) <i class="fa-solid fa-arrow-down"></i></button>
+                            <button type="button" id="modal-project-dropdown-btn">Project (none) <i class="fa-solid fa-arrow-down"></i></button>
                             <div class="modal-project-dropdown-content" id="modal-project-dropdown-content">
                             </div>
                         </div>
@@ -46,13 +46,15 @@ function todoModal() {
         document.getElementById('main-content').appendChild(modal);
         close = document.querySelector('.close');
     }
+
     return modal;
 }
 export default function showTodo() { 
-    todoModal().style.display = "flex";
-    setTimeout(() => todoModal().classList.add('show'), 10);
+    const todo_Modal = todoModal();
+    todo_Modal.style.display = "flex";
+    setTimeout(() => todo_Modal.classList.add('show'), 10);
     close.onclick = ()=> {
-        setTimeout(() => todoModal().style.display = "none", 300);
-        todoModal().classList.remove('show');
+        setTimeout(() => todo_Modal.style.display = "none", 300);
+        todo_Modal.classList.remove('show');
     }
 }

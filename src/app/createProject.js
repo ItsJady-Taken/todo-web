@@ -13,26 +13,36 @@ function removeProject(name) {
 
 //create project button and clone btn to the modal of Todo
 const projectDropdownContent = document.getElementById('project-dropdown-content');
-const projectDropdownBtn = document.getElementById('project-dropdown-btn');
-function showProject(projectName) {
+
+function showProject(projectName) { 
+    const modalProjectDropdownContent = document.getElementById('modal-project-dropdown-content');
+    const modalProjectDropdownBtn = document.getElementById('modal-project-dropdown-btn');
     const project = createProject(projectName);
+
     const projectBtn = document.createElement('button');
     projectBtn.type = 'button';
     projectBtn.id = `${project.name}-btn`;
     projectBtn.textContent = project.name;
+    // removeProjectFirstChild();
+    // projectModal(project);
 
+    // append to the main dropdown content and clone to the modal
     projectDropdownContent.appendChild(projectBtn);  
-
     const projectBtnClone = projectBtn.cloneNode(true);
-    document.getElementById('modal-project-dropdown-content').appendChild(projectBtnClone);
+    projectBtnClone.id = `modal-${projectBtn.id}`;
+    modalProjectDropdownContent.appendChild(projectBtnClone);
 
     // if project btn is click show the content in it
     projectBtn.addEventListener('click', () => {
-        projectDropdownBtn.textContent = '';
-        projectDropdownBtn.textContent = projectBtn.textContent;
         removeProjectFirstChild()
         projectModal(project);
     
+    });
+    const modalProjectBtn = document.getElementById(`${projectBtnClone.id}`);
+    modalProjectBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        modalProjectDropdownBtn.textContent = '';
+        modalProjectDropdownBtn.textContent = project.name;
     });
 }
 

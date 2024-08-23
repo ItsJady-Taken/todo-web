@@ -7,6 +7,12 @@ const modalDropdownBtn = document.getElementById('modal-project-dropdown-btn');
 
 function projectModal(project) {
     const content = document.querySelector('#content');
+    const projectDropdownBtn = document.getElementById('project-dropdown-btn'); 
+    const projectBtn = document.getElementById(`${project.name}-btn`);
+    const modalProjectBtn = document.getElementById(`modal-${project.name}-btn`);
+   
+    projectDropdownBtn.textContent = '';
+    projectDropdownBtn.textContent = project.name;
 
     const projectContent = document.createElement('div');
     projectContent.classList.add('project-content');
@@ -23,14 +29,13 @@ function projectModal(project) {
     content.appendChild(projectContent);
    
     const removeProjectBtn = document.getElementById(`remove-${projectContent.id}`);
-    removeProjectBtn.addEventListener('click', () => {
-        const projectDropdownBtn = document.getElementById('project-dropdown-btn');
-        const projectBtn = document.getElementById(`${project.name}-btn`);
+    removeProjectBtn.addEventListener('click', () => { 
+       
         projectDropdownBtn.textContent = '';
         projectDropdownBtn.innerHTML = 'All Projects <i class="fa-solid fa-arrow-down-short-wide"></i>';
         projectBtn.remove();
         projectContent.remove();
-
+        modalProjectBtn.remove();
     }) 
     return content;
 }
