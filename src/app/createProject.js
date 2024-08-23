@@ -1,4 +1,5 @@
 import  showTodo  from "./createTodo";
+import projectModal from "./todoModal";
  function createProject(name) {
     return {
         name,
@@ -11,6 +12,7 @@ const projectDropdownBtn = document.getElementById('project-dropdown-btn');
 function showProject(projectName) {
     const project = createProject(projectName);
     const projectBtn = document.createElement('button');
+    projectBtn.type = 'button';
     projectBtn.id = project.name;
     projectBtn.textContent = project.name;
 
@@ -21,38 +23,21 @@ function showProject(projectName) {
 
     // if project btn is click show the content in it
     projectBtn.addEventListener('click', () => {
-        projectBtn.disabled = true;
         projectDropdownBtn.textContent = '';
         projectDropdownBtn.textContent = projectBtn.textContent;
-
-        const projectContent = document.createElement('div');
-        projectContent.classList.add('project-content');
-
-        projectContent.innerHTML = `
-            <div class="project-content-title">
-                <h2>Project: ${project.name}</h2> <button class="remove-project-btn" id="remove-project-btn">Remove Project</button>
-            </div>
-            <ul class="project-list">
-             
-            </ul>
-            
-        `;
+        projectModal(project);
 
         const content = document.getElementById('content')
-        content.appendChild(projectContent);
-
         if (content.firstChild) {
             content.firstChild.remove();
-            projectBtn.disabled = false;
         }
-    
     });
 }
 
 // create project list object and append to project dropdown content
 const addProject = document.querySelector('#createProject');
 const existProject = document.querySelector('#project-dropdown-content');
-function createProjectModal() {
+function displayingProject() {
     if (!addProject.value) return;
     const newProject = addProject.value.trim();
     showTodo();
@@ -65,4 +50,4 @@ function createProjectModal() {
 }
 
 
- export { createProjectModal };
+ export { displayingProject };

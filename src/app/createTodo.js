@@ -26,7 +26,7 @@ function todoModal() {
                         </select>
 
                         <div class="modal-project-dropdown" id="modal-project-dropdown">
-                            <button>Project (none) <i class="fa-solid fa-arrow-down"></i></button>
+                            <button type="button">Project (none) <i class="fa-solid fa-arrow-down"></i></button>
                             <div class="modal-project-dropdown-content" id="modal-project-dropdown-content">
                             </div>
                         </div>
@@ -37,11 +37,12 @@ function todoModal() {
                         <input type="checkbox" name="check" id="check" value="check">
                         <label for="check" style="position: relative; bottom: 1px">Mark as completed</label>
                     </div>
-                     <button class="fa-button" id="modalButton" name="submit"><p>Create</p></button>
+                     <button type="submit" class="fa-button" id="modalButton" name="submit"><p>Create</p></button>
                 </form>     
             </div>
                 
         `;
+        
         document.getElementById('main-content').appendChild(modal);
         close = document.querySelector('.close');
     }
