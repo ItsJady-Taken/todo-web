@@ -3,7 +3,7 @@ import './styles/sidebar.scss';
 import './styles/content.scss';
 import './styles/modal.scss';
 import toggleSidebar from './app/sidebarToggle';
-import showTodo from './app/createTodo';
+import showTodo, { createTodo } from './app/createTodo';
 import { displayingProject, showProject } from './app/createProject';
 
 // check if there is any project in local storage then show it

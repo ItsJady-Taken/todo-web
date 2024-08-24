@@ -1,3 +1,5 @@
+import { createTodo } from "./createTodo";
+
 const modalDropdownBtn = document.getElementById('modal-project-dropdown-btn');
 const content = document.querySelector('#content');
 const projectDropdownBtn = document.getElementById('project-dropdown-btn'); 
@@ -13,10 +15,9 @@ function projectModal(project) {
     const projectContent = document.createElement('div');
     projectContent.classList.add('project-content');
     projectContent.id = project.name;
-
     projectContent.innerHTML = `
         <div class="project-content-title">
-          <div><p>Project:<p><h2>${project.name}</h2></div>  <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
+          <div><p><strong>Project:</strong></p><h2>${project.name}</h2></div>  <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
         </div>
         <ul class="project-list">
         
@@ -39,8 +40,6 @@ function projectModal(project) {
         delete localStorage[project.name];
     }) 
     return content;
-
-   
 }
 
 

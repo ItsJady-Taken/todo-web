@@ -32,6 +32,13 @@
     border-radius: 3px;
 }
 
+.project-content-title > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+}
+
 .remove-project-btn {
     background-color: #d32626; /* Bootstrap's primary blue color */
     color: white;
