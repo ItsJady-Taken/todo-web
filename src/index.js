@@ -4,7 +4,20 @@ import './styles/content.scss';
 import './styles/modal.scss';
 import toggleSidebar from './app/sidebarToggle';
 import showTodo from './app/createTodo';
-import { displayingProject } from './app/createProject';
+import { displayingProject, showProject } from './app/createProject';
+
+// check if there is any project in local storage then show it
+document.addEventListener('DOMContentLoaded', function() {
+    const localStorageItems = {};
+    for (let i = 0; i < localStorage.length; i++) {
+        const key = localStorage.key(i);
+        const value = localStorage.getItem(key);
+        localStorageItems[key] = value;
+      }
+    for(const project in localStorageItems) { 
+        showProject(project);
+    }
+});
 
 // toggles between sidebar closing and opening btn
 document.getElementById('sidebar-toggle-btn').addEventListener('click', ()=> {
@@ -28,3 +41,4 @@ addProject.addEventListener('keypress', (event)=> {
         displayingProject();
     }
 })
+ 

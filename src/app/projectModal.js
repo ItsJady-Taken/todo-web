@@ -1,13 +1,9 @@
-const title = document.getElementById('todoTitle');
-const description = document.getElementById('todoDescription');
-const date = document.getElementById('todoDate');
-const priority = document.getElementById('todoPriority');
 const modalDropdownBtn = document.getElementById('modal-project-dropdown-btn');
+const content = document.querySelector('#content');
+const projectDropdownBtn = document.getElementById('project-dropdown-btn'); 
 
-
-function projectModal(project) {
-    const content = document.querySelector('#content');
-    const projectDropdownBtn = document.getElementById('project-dropdown-btn'); 
+function projectModal(project) { 
+   
     const projectBtn = document.getElementById(`${project.name}-btn`);
     const modalProjectBtn = document.getElementById(`modal-${project.name}-btn`);
    
@@ -20,7 +16,7 @@ function projectModal(project) {
 
     projectContent.innerHTML = `
         <div class="project-content-title">
-            <h2>Project: ${project.name}</h2> <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
+          <div><p>Project:<p><h2>${project.name}</h2></div>  <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
         </div>
         <ul class="project-list">
         
@@ -28,17 +24,26 @@ function projectModal(project) {
     `;
     content.appendChild(projectContent);
    
+    // remove project button
     const removeProjectBtn = document.getElementById(`remove-${projectContent.id}`);
     removeProjectBtn.addEventListener('click', () => { 
        
-        projectDropdownBtn.textContent = '';
+        projectDropdownBtn.textContent = '';                     
         projectDropdownBtn.innerHTML = 'All Projects <i class="fa-solid fa-arrow-down-short-wide"></i>';
+        modalDropdownBtn.textContent = '';
+        modalDropdownBtn.innerHTML = 'Project (none) <i class="fa-solid fa-arrow-down"></i>';
+       
         projectBtn.remove();
         projectContent.remove();
         modalProjectBtn.remove();
+        delete localStorage[project.name];
     }) 
     return content;
+
+   
 }
+
+
 
 // Remove project
 function removeProjectFirstChild() {
@@ -51,3 +56,6 @@ function removeProjectFirstChild() {
 
 export { removeProjectFirstChild };
 export default projectModal;
+
+
+
