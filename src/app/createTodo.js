@@ -26,11 +26,13 @@ function createTodo() {
     todoModal.id = title.value;
 
     todoModal.innerHTML = `
-            <div class="todo-modal-content">
-                
-                <input type="checkbox" name="check" id="check" value="check">    
-                <h2>${title.value}</h2>
-                <p>${description.value}</p>
+            <div class="todo-modal-body">
+                <input type="checkbox" name="${title.value}" id="${title.value}" value="check">    
+                <div class="todo-modal-content">
+                    <h3>${title.value}</h3>
+                    <p>${description.value}</p>
+                    <p>${date.value}</p>
+                </div>     
             </div>
         `;
     const projectList = document.getElementById('project-todo-list');
@@ -39,8 +41,7 @@ function createTodo() {
 }
 
 function addTodo(title, description, date, priority, project) {
-    const currentDate = new Date();
-    const formattedDate = format(currentDate, 'yyyy-MM-dd');
+ 
     return {
         title,
         description,
