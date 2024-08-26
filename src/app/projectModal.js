@@ -19,7 +19,7 @@ function projectModal(project) {
         <div class="project-content-title">
           <div><p><strong>Project:</strong></p><h2>${project.name}</h2></div>  <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
         </div>
-        <ul class="project-list">
+        <ul class="project-todo-list" id="project-todo-list">
         
         </ul>   
     `;

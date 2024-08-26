@@ -7,6 +7,12 @@ import projectModal, { removeProjectFirstChild } from "./projectModal";
       }; 
 }
 
+function getProject(projectName) {
+    return{
+        name: projectName,
+        projects: [],
+    }
+}
 
 //create project button and clone btn to the modal of Todo
 const projectDropdownContent = document.getElementById('project-dropdown-content');
@@ -46,12 +52,10 @@ function showProject(projectName) {
 }
 
 // create project list object and append to project dropdown content
-const addProject = document.querySelector('#createProject');
 const existProject = document.querySelector('#project-dropdown-content');
-function displayingProject() {
+function displayingProject(addProject) {
     if (!addProject.value) return;
-    const newProject = addProject.value.trim();
-    
+    const newProject = addProject.value.trim();   
 
     const existingProjects = Array.from(existProject.children).map(option => option.textContent);
     if(!existingProjects.includes(newProject)) {
@@ -59,8 +63,7 @@ function displayingProject() {
         localStorage.setItem(`${newProject}`, JSON.stringify(newProject));
     }    
     addProject.value = '';
-
 }
 
 
- export { displayingProject, showProject };
+ export { displayingProject, showProject, getProject };

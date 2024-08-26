@@ -57,3 +57,27 @@
     background-color: #680d0d;
     transform: translateY(2px);
 }
+
+// project list and todo modal
+.project-todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.todo-modal {
+    display: block;
+    text-decoration: none;
+}
+
+.todo-modal-content {
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    gap: 10px;
+    padding: 0 5px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}

@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     for(const project in localStorageItems) { 
         showProject(project);
     }
+    
 });
 
 // toggles between sidebar closing and opening btn
@@ -29,7 +30,7 @@ document.getElementById('close-sidebar').addEventListener('click', ()=> {
     document.getElementById('sidebar-toggle-btn').style.display = 'block';
 })
 
-// show the 'create todo' form 
+// show the form modal
 document.getElementById('add-todo-btn').addEventListener('click', ()=> {
    showTodo();
 })
@@ -38,7 +39,16 @@ document.getElementById('add-todo-btn').addEventListener('click', ()=> {
 const addProject = document.querySelector('#createProject');
 addProject.addEventListener('keypress', (event)=> {
     if (event.key === 'Enter') {
-        displayingProject();
+        displayingProject(addProject);   
     }
 })
  
+ // create todo
+const todoForm = document.getElementById('todoForm');
+// const modalDropdownBtn = document.getElementById('modal-project-dropdown-btn');
+todoForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+// const content = modalDropdownBtn.textContent;
+    createTodo();
+    
+});  

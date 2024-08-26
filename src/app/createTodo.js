@@ -1,14 +1,14 @@
 import { format, addDays } from "date-fns";
-
+import { getProject } from "./createProject";
 
 export default function showTodo() { 
-    const todo_Modal = document.getElementById('myModal');
+    const formModal = document.getElementById('myModal');
     const close = document.querySelector('.close');
-    todo_Modal.style.display = "flex";
-    setTimeout(() => todo_Modal.classList.add('show'), 10);
+    formModal.style.display = "flex";
+    setTimeout(() => formModal.classList.add('show'), 10);
     close.onclick = ()=> {
-        setTimeout(() => todo_Modal.style.display = "none", 300);
-        todo_Modal.classList.remove('show');
+        setTimeout(() => formModal.style.display = "none", 300);
+        formModal.classList.remove('show');
     }
 }
 
@@ -16,15 +16,26 @@ const title = document.getElementById('todoTitle');
 const description = document.getElementById('todoDescription');
 const date = document.getElementById('todoDate');
 const priority = document.getElementById('todoPriority');
-const modalProjectDropdownBtn = document.getElementById('modal-project-dropdown-btn'); 
+const Chosenproject = document.getElementById('modal-project-dropdown-btn');
 
-const todoForm = document.getElementById('todoForm');
-function createTodo(project) {
-    todoForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        
-        console.log(title.value, description.value, date.value, priority.value, project.projects);
-    })
+function createTodo() {
+    const project = getProject(Chosenproject.textContent);
+    
+    const todoModal = document.createElement('li');
+    todoModal.classList.add('todo-modal');
+    todoModal.id = title.value;
+
+    todoModal.innerHTML = `
+            <div class="todo-modal-content">
+                
+                <input type="checkbox" name="check" id="check" value="check">    
+                <h2>${title.value}</h2>
+                <p>${description.value}</p>
+            </div>
+        `;
+    const projectList = document.getElementById('project-todo-list');
+    projectList.appendChild(todoModal);
+    
 }
 
 function addTodo(title, description, date, priority, project) {
@@ -33,7 +44,7 @@ function addTodo(title, description, date, priority, project) {
     return {
         title,
         description,
-        date: formattedDate, 
+        date, 
         priority,
         project
     }
