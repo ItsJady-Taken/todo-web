@@ -9,3 +9,4 @@ export default function toggleSidebar() {
         container.style.gridTemplateColumns = "250px 1fr";
     }
 }
+

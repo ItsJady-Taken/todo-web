@@ -1,13 +1,12 @@
 import projectModal, { removeProjectFirstChild } from "./projectModal";
 
- function createProject(name) {
+function createProject(name) {
     return {
         name,
         projects: [],
       }; 
 }
-
-function getProject(projectName) {
+function getProject (projectName) {
     return{
         name: projectName,
         projects: [],
@@ -18,7 +17,7 @@ function getProject(projectName) {
 const projectDropdownContent = document.getElementById('project-dropdown-content');
 const modalProjectDropdownContent = document.getElementById('modal-project-dropdown-content');
 const modalProjectDropdownBtn = document.getElementById('modal-project-dropdown-btn');
-function showProject(projectName) {  
+function showProject (projectName) {  
     const project = createProject(projectName);
 
     const projectBtn = document.createElement('button');
@@ -44,6 +43,8 @@ function showProject(projectName) {
         event.preventDefault();
         modalProjectDropdownBtn.textContent = '';
         modalProjectDropdownBtn.textContent = project.name;
+        removeProjectFirstChild();
+        projectModal(project);
     });
 
     // display content when a project btn is created
@@ -53,17 +54,17 @@ function showProject(projectName) {
 
 // create project list object and append to project dropdown content
 const existProject = document.querySelector('#project-dropdown-content');
-function displayingProject(addProject) {
+function displayingProject (addProject) {
     if (!addProject.value) return;
     const newProject = addProject.value.trim();   
 
     const existingProjects = Array.from(existProject.children).map(option => option.textContent);
     if(!existingProjects.includes(newProject)) {
         showProject(newProject);
-        localStorage.setItem(`${newProject}`, JSON.stringify(newProject));
+        localStorage.setItem(newProject, JSON.stringify(createProject(newProject)));
     }    
     addProject.value = '';
 }
 
 
- export { displayingProject, showProject, getProject };
+export { displayingProject, showProject, getProject };
