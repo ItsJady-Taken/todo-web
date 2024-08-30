@@ -5,7 +5,7 @@ module.exports = {
     mode: 'development',
     entry: './src/index.js',
     output: {
-        filename: 'main.js',
+        filename: 'bundle.[contenthash].js',
         path: path.resolve(__dirname, './dist'),
         clean: true,
     },
@@ -34,5 +34,9 @@ module.exports = {
     },
     resolve: {
         modules: ['node_modules'],
-      },
+    },
+    devServer: {
+        static: './dist',
+        hot: true,
+    },
 }

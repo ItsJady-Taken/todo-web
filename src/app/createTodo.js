@@ -21,31 +21,30 @@ export default function showTodoForm() {
 
 function displayTodo(title, description, date, priority) {
     
-    const todoModal = document.createElement('div');
+    const todoModal = document.createElement('li');
     todoModal.classList.add('todo-modal');
     todoModal.id = title.value;
 
     todoModal.innerHTML = `
             <div class="todo-modal-body">  
-                <input type="checkbox" name="${title.value}" id="${title.value}">
+                <input type="checkbox" name="${title}" id="${title}">
                 <div class="todo-modal-content">
-                    <h3>${title.value}:</h3>
-                    <p class="description">${description.value}</p>
-                    <p><strong>- Date:</strong> <em>[${date.value}]</em></p>
-                    <p><strong>Priority:</strong> ${priority.value}</p>     
+                    <h3>${title}:</h3>
+                    <p class="description">${description}</p>
+                    <p><strong>- Date:</strong> <em>[${date}]</em></p>
+                    <p><strong>Priority:</strong> ${priority}</p>     
                 </div>     
             </div>
     `;
-    if (priority.value === 'low') {
+    if (priority === 'low') {
         todoModal.style.backgroundColor = 'lightgreen';
-    } else if (priority.value === 'medium') {
+    } else if (priority === 'medium') {
         todoModal.style.backgroundColor = 'yellow';
-    } else if (priority.value === 'high') {
+    } else if (priority === 'high') {
         todoModal.style.backgroundColor = 'red';
     }
-    const projectList = document.getElementById(`todo-content`);
-    projectList.appendChild(todoModal);
-    return todoModal;
+    
+    return todoModal;    
 }
 
 
@@ -68,7 +67,7 @@ function createTodo() {
 
 function checkConditions(project) {
     const storedProject = JSON.parse(localStorage.getItem(project.name));
-    const projectList = document.getElementById(`content`);  
+    const projectList = document.getElementById(`project-${project.name}-list`);  
     
     const existingTodo = Array.from(projectList.children).map(li => li.id);
     if(existingTodo.includes(title.value)) {
@@ -77,7 +76,7 @@ function checkConditions(project) {
     
     else {
         // apend todo to the DOM
-    displayTodo(title, description, date, priority);
+        projectList.appendChild(displayTodo(title.value, description.value, date.value, priority.value));
 
        // create todo
         const newTodo = addTodo(title.value, description.value, date.value, priority.value);
@@ -85,10 +84,7 @@ function checkConditions(project) {
 
         // save to local storage
         localStorage.setItem(project.name, JSON.stringify(storedProject));
-        
     }  
-    
-    
 }
 
 function addTodo(title, description, date, priority) { 
@@ -100,6 +96,15 @@ function addTodo(title, description, date, priority) {
     }
 }
 
+function loadTodoContent (project) {
+    const projectList = document.querySelector(`#project-${project}-list`);
+    const localStorageKey = `${project}`;
+    const existingTodos = JSON.parse(localStorage.getItem(localStorageKey)) || [];
+    existingTodos.projects.forEach (function(todoItem) {
+        const displayTodoContent = displayTodo(todoItem.title, todoItem.description, todoItem.date, todoItem.priority)
+        displayTodoContent.classList.add('todo-item');
+        projectList.appendChild(displayTodoContent);    
+    });
+}
 
-
-export { createTodo, displayTodo };
+export { createTodo, displayTodo, checkConditions, loadTodoContent };

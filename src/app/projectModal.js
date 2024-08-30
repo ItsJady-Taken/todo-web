@@ -19,11 +19,11 @@ function projectModal(project) {
         <div class="project-content-title">
           <div><p><strong>Project:</strong></p><h2>${project.name}</h2></div>  <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
         </div>
-        <div class="project-todo-container" id="project-todo-container">
-            <ul class="project-todo-list" id="project-${project.name}-list">
-            
-            </ul>   
-        </div>
+       
+        <ul class="project-todo-list" id="project-${project.name}-list">
+        
+        </ul>   
+        
 
         
     `;
@@ -53,8 +53,7 @@ function removeProjectFirstChild() {
     const content = document.querySelector('#content');
     while (content.firstChild) {
         content.removeChild(content.firstChild); // remove the first child element of the content element();
-    }
-    
+    }  
 }
 
 export { removeProjectFirstChild };

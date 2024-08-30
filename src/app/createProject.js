@@ -1,5 +1,5 @@
 import projectModal, { removeProjectFirstChild } from "./projectModal";
-
+import { loadTodoContent } from "./createTodo";
 function createProject(name) {
     return {
         name,
@@ -36,6 +36,8 @@ function showProject (projectName) {
     projectBtn.addEventListener('click', () => {
         removeProjectFirstChild()
         projectModal(project);
+        loadTodoContent(project.name);
+       
     });
 
     const modalProjectBtn = document.getElementById(`${projectBtnClone.id}`);
@@ -45,6 +47,7 @@ function showProject (projectName) {
         modalProjectDropdownBtn.textContent = project.name;
         removeProjectFirstChild();
         projectModal(project);
+        loadTodoContent(project.name);
     });
 
     // display content when a project btn is created
