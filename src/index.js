@@ -4,7 +4,7 @@ import './styles/content.scss';
 import './styles/modal.scss';
 import toggleSidebar from './app/sidebarToggle';
 import showTodoForm, { createTodo, displayTodo, checkConditions, loadTodoContent } from './app/createTodo';
-import { displayingProject, showProject } from './app/createProject';
+import { displayingProject, showProject, createProject } from './app/createProject';
 
 // check if there is any project in local storage then show it
 document.addEventListener('DOMContentLoaded', function() {
@@ -47,10 +47,10 @@ addProject.addEventListener('keypress', (event)=> {
  
  // create todo
 const todoForm = document.getElementById('todoForm');
-// const modalDropdownBtn = document.getElementById('modal-project-dropdown-btn');
 todoForm.addEventListener('submit', (event) => {
     event.preventDefault();
-// const content = modalDropdownBtn.textContent;
     createTodo();
-    
 });  
+
+// create a default project
+localStorage.setItem("Default Project", JSON.stringify(createProject("Default Project")));;

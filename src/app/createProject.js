@@ -70,4 +70,4 @@ function displayingProject (addProject) {
 }
 
 
-export { displayingProject, showProject, getProject };
+export { displayingProject, showProject, getProject, createProject };
