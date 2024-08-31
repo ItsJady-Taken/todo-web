@@ -5,6 +5,7 @@ import './styles/modal.scss';
 import toggleSidebar from './app/sidebarToggle';
 import showTodoForm, { createTodo, displayTodo, checkConditions, loadTodoContent } from './app/createTodo';
 import { displayingProject, showProject, createProject } from './app/createProject';
+import { showTodoContent } from "./app/displayTodo";
 
 // check if there is any project in local storage then show it
 document.addEventListener('DOMContentLoaded', function() {
@@ -13,13 +14,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const key = localStorage.key(i);
         const value = localStorage.getItem(key);
         localStorageItems[key] = value;
+
+       
      } 
        
     for(const project in localStorageItems) { 
         showProject(project);
         loadTodoContent(project);
     };
-    
 });
 
 // toggles between sidebar closing and opening btn
@@ -53,4 +55,8 @@ todoForm.addEventListener('submit', (event) => {
 });  
 
 // create a default project
-localStorage.setItem("Default Project", JSON.stringify(createProject("Default Project")));;
+const existProject = document.querySelector('#project-dropdown-content');
+const existingProjects = Array.from(existProject.children).map(option => option.textContent);
+if(!existingProjects.includes("Default")) {
+   displayingProject("Default");
+}

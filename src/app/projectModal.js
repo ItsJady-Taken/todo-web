@@ -15,17 +15,15 @@ function projectModal(project) {
     const projectContent = document.createElement('div');
     projectContent.classList.add('project-content');
     projectContent.id = project.name;
+    const projectList = project.name.replace(/\s+/g, '-')
     projectContent.innerHTML = `
         <div class="project-content-title">
           <div><p><strong>Project:</strong></p><h2>${project.name}</h2></div>  <button class="remove-project-btn" id="remove-${projectContent.id}">Remove Project</button>
         </div>
        
-        <ul class="project-todo-list" id="project-${project.name}-list">
+        <ul class="project-todo-list" id="project-${projectList}-list">
         
-        </ul>   
-        
-
-        
+        </ul>  
     `;
     content.appendChild(projectContent);
    
