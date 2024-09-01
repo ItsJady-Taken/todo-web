@@ -14,7 +14,7 @@ function projectModal(project) {
 
     const projectContent = document.createElement('div');
     projectContent.classList.add('project-content');
-    projectContent.id = project.name;
+    projectContent.id = project.name.replace(/\s+/g, '-');
     const projectList = project.name.replace(/\s+/g, '-')
     projectContent.innerHTML = `
         <div class="project-content-title">

@@ -1,5 +1,7 @@
 import { format, parseISO, isBefore } from "date-fns";
 import { getProject } from "./createProject";
+import { removeProjectFirstChild } from "./projectModal";
+import { showTodoContent } from "./showTodoContent";
 
 const title = document.getElementById('todoTitle');
 const description = document.getElementById('todoDescription');
@@ -22,6 +24,8 @@ function displayTodo(title, description, date, priority) {
     
     const todoModal = document.createElement('li');
     todoModal.classList.add('todo-modal');
+   
+    
     todoModal.id = `${title.replace(/ /g, '-')}-li`;
 
     todoModal.innerHTML = `
@@ -43,7 +47,8 @@ function displayTodo(title, description, date, priority) {
         todoModal.style.backgroundColor = 'red';
     }
     todoModal.addEventListener('click', (event) => {
-       console.log("hello");
+     removeProjectFirstChild();
+     showTodoContent(title);
        
     });
     return todoModal;    
@@ -58,7 +63,7 @@ function createTodo() {
       return alert('You cannot enter past date.');
     }
     else if (Chosenproject.innerHTML == 'Project (none) <i class="fa-solid fa-arrow-down"></i>') {
-        return alert('Please sleect a project');
+        return alert('Please select a project');
     }
     else {
          const project = getProject(Chosenproject.textContent);
