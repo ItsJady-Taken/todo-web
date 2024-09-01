@@ -5,7 +5,7 @@ import './styles/modal.scss';
 import toggleSidebar from './app/sidebarToggle';
 import showTodoForm, { createTodo, displayTodo, checkConditions, loadTodoContent } from './app/createTodo';
 import { displayingProject, showProject, createProject } from './app/createProject';
-import { showTodoContent } from "./app/displayTodo";
+import { showTodoContent } from "./app/showTodoContent";
 
 // check if there is any project in local storage then show it
 document.addEventListener('DOMContentLoaded', function() {

@@ -26,7 +26,7 @@ function displayTodo(title, description, date, priority) {
 
     todoModal.innerHTML = `
             <div class="todo-modal-body">  
-                <input type="checkbox" name="${title}" id="${title}">
+               
                 <div class="todo-modal-content">
                     <h3>${title}:</h3>
                     <p class="description">${description}</p>
@@ -86,6 +86,16 @@ function checkConditions(project) {
 
         // save to local storage
         localStorage.setItem(project.name, JSON.stringify(storedProject));
+
+        // clear and close form
+        title.value = '';
+        description.value = '';
+        date.value = '';
+        priority.value = 'none';
+        Chosenproject.innerHTML = 'Project (none) <i class="fa-solid fa-arrow-down"></i>';
+        const formModal = document.getElementById('myModal');
+        setTimeout(() => formModal.style.display = "none", 300);
+        formModal.classList.remove('show');
     }  
 }
 
