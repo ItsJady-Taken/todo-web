@@ -46,10 +46,9 @@ function displayTodo(title, description, date, priority) {
     } else if (priority === 'high') {
         todoModal.style.backgroundColor = 'red';
     }
-    todoModal.addEventListener('click', (event) => {
-     removeProjectFirstChild();
-     showTodoContent(title);
-       
+    todoModal.addEventListener('click', () => {
+        removeProjectFirstChild();
+        showTodoContent(title, description, date, priority);
     });
     return todoModal;    
 }
