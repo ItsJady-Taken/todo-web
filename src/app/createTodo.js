@@ -20,7 +20,7 @@ export default function showTodoForm() {
     }
 }
 
-function displayTodo(title, description, date, priority) {
+function displayTodo(title, description, date, priority, completed) {
     
     const todoModal = document.createElement('li');
     todoModal.classList.add('todo-modal');
@@ -48,7 +48,7 @@ function displayTodo(title, description, date, priority) {
     }
     todoModal.addEventListener('click', () => {
         removeProjectFirstChild();
-        showTodoContent(title, description, date, priority);
+        showTodoContent(title, description, date, priority, completed);
     });
     return todoModal;    
 }
@@ -82,10 +82,10 @@ function checkConditions(project) {
     
     else {
         // apend todo to the DOM
-        projectList.appendChild(displayTodo(title.value, description.value, date.value, priority.value));
+        projectList.appendChild(displayTodo(title.value, description.value, date.value, priority.value, false));
 
        // create todo
-        const newTodo = addTodo(title.value, description.value, date.value, priority.value);
+        const newTodo = addTodo(title.value, description.value, date.value, priority.value, false);
         storedProject.projects.push(newTodo);
 
         // save to local storage
@@ -103,12 +103,13 @@ function checkConditions(project) {
     }  
 }
 
-function addTodo(title, description, date, priority) { 
+function addTodo(title, description, date, priority, Complete = false) {
     return {
         title,
         description,
         date, 
         priority,
+        Complete
     }
 }
 
@@ -117,7 +118,7 @@ function loadTodoContent (project) {
     const localStorageKey = `${project}`;
     const existingTodos = JSON.parse(localStorage.getItem(localStorageKey)) || [];
     existingTodos.projects.forEach (function(todoItem) {
-        const displayTodoContent = displayTodo(todoItem.title, todoItem.description, todoItem.date, todoItem.priority)
+        const displayTodoContent = displayTodo(todoItem.title, todoItem.description, todoItem.date, todoItem.priority, todoItem.Complete);  
         displayTodoContent.classList.add('todo-item');
         projectList.appendChild(displayTodoContent);    
     });

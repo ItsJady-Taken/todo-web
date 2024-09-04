@@ -179,9 +179,24 @@
     flex-wrap: wrap;
 }
 
-.todo-content-title h1 {
+.todo-content-title { 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.todo-content-title input {
     text-decoration: underline;
-   
+    background-color: transparent;
+    width: 50%;
+    border-radius: 5px;
+    height: 50px;
+    font-size: larger;
+    font-weight: bolder;
+    padding: 10px;
 }
 
 .todo-content-description textarea {
@@ -191,6 +206,7 @@
     width: 100%;
     aspect-ratio: 60/30; /* maintain the original aspect ratio */
     box-sizing: border-box;
+    border-radius: 5px;
 }
 
 .todo-content-remove {
@@ -200,6 +216,15 @@
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
+}
+
+.message {
+    color: rgb(99, 255, 99);
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    font-style: italic;
+    font-weight: bold;
 }
 
 .back-btn {

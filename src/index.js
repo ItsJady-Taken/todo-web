@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const key = localStorage.key(i);
         const value = localStorage.getItem(key);
         localStorageItems[key] = value;
-
-       
      } 
        
     for(const project in localStorageItems) { 
-        showProject(project);
+        showProject(project);  
         loadTodoContent(project);
     };
 });

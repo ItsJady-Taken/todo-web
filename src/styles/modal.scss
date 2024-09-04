@@ -72,7 +72,8 @@
 
 /* Form styling */
 
-#todoForm {
+#todoForm,
+#editTodoForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
