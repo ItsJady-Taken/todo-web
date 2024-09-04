@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo App</title>
+    <script defer src="bundle.3e0d497c7a93f3ebbca9.js"></script></head>
+    <body>
+        <div class="container" id="container">
+            
+            <!-- sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="app-title">
+                    <p>Todo.<em style="color: red;">Task</em></p> <button id="close-sidebar">X</button>
+                </div>
+
+                <ul class="todo-list" id="todo-list">
+                    <p style="font-size: 15px; font-weight: bold;">Todo List:</p>
+                    <li><button class="add-task-btn" id="add-todo-btn"><i class="fa-regular fa-square-plus"></i>Add Todo</button></li>      
+                </ul>
+
+                <ul class="project-list">
+                    <p style="font-size: 18px; font-weight: bolder;">My Projects:</p>
+                    <input type="text" name="" id="createProject" maxlength="25" placeholder="Create Project">
+
+                    <div class="project-dropdown" id="project-dropdown">
+                        <button id="project-dropdown-btn">All Projects <i class="fa-solid fa-arrow-down-short-wide"></i></button>
+                        <div class="project-dropdown-content" id="project-dropdown-content">
+                        
+                        </div>
+                    </div>
+                </ul>
+            </div>
+
+            <!-- main content -->
+            <div class="main-content" id="main-content">
+                <button id="sidebar-toggle-btn" class="sidebar-toggle-btn"><i class="fa-solid fa-bars fa-lg"></i></button>
+                <main class="content" id="content">
+            
+                </main>
+
+                <!-- modal for create todo -->
+                <div class="modal" id="myModal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Create Todo</h2>
+                        <form id="todoForm" action="" method="post">
+                            <input type="text" name="title" id="todoTitle" placeholder="Todo Title..." maxlength="25" required>
+                            <textarea cols="30" rows="10" name="description" id="todoDescription" placeholder="Todo Description..." required></textarea>
+                            <div class="three-inputs">
+                                <input type="date" name="date" id="todoDate" placeholder="Todo Date" required>
+                                
+                                <select name="priority" id="todoPriority">
+                                    <option value="none">Priority (none)</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="high">High</option>  
+                                </select>
+        
+                                <div class="modal-project-dropdown" id="modal-project-dropdown">
+                                    <button type="button" id="modal-project-dropdown-btn">Project (none) <i class="fa-solid fa-arrow-down"></i></button>
+                                    <div class="modal-project-dropdown-content" id="modal-project-dropdown-content">
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <button type="submit" class="fa-button" id="modalButton" name="submit"><p>Create</p></button>
+                        </form>     
+                    </div>     
+                </div>       
+            </div>
+
+        </div>
+        
+    </body>
+</html>
